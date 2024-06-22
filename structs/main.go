@@ -14,8 +14,9 @@ type person struct {
 	contactInfo
 }
 
-func (p person) updateName() {
-	p.firstName = "Updated Name!"
+// go is pass by value and it creates a copy of the args passed
+func (personPointer *person) updateName() {
+	personPointer.firstName = "Updated Name!"
 }
 
 func (p person) print() {
@@ -40,6 +41,8 @@ func main() {
 		email:   "alex@gmail.com",
 		zipCode: 94000,
 	}}
+
+	// alexPointer := &alex
 
 	alex.updateName()
 	alex.print()
